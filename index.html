@@ -5,14 +5,10 @@
         left: 0;
         width: 100%;
         height: 100%;
-        /*background: hsl(0deg 0% 0% / 0.75);*/
         display: grid;
         place-content: center;
         transition: top 0.2s ease-out;
-    }
-
-    .dialog-wrapper__ease_in {
-        transition: top 0.2s ease-in;
+        color: black;
     }
 
     .dialog-wrapper__closed {
@@ -30,13 +26,28 @@
                 width 0.2s ease-in-out,
                 height 0.2s ease-in-out,
                 background-color 0.2s ease-in-out;
+        border: 1px solid black;
+    }
+
+    .dialog-header {
+        padding: 0 20px;
+        /*color: white;*/
+    }
+
+    .dialog-header_wrapper {
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid black;
     }
 
     .close-btn {
-        padding: 16px;
+        padding: 10px 0;
         background: transparent;
         border: none;
         font-weight: bold;
+        cursor: pointer;
     }
 
     /* if width >= 750 */
@@ -44,7 +55,6 @@
         .dialog-content {
             width: 70vw;
             height: 70vh;
-            background-color: #00b3ee;
         }
     }
 
@@ -53,7 +63,6 @@
         .dialog-content {
             width: 600px;
             height: 400px;
-            background-color: #020202;
         }
     }
 </style>
@@ -82,8 +91,13 @@
 <button id="abrir">Abrir</button>
 <div id="modal" class="dialog-wrapper dialog-wrapper__closed">
     <div class="dialog-content">
-        <button class="close-btn" id="fechar">
-            Close
-        </button>
+        <div class="dialog-header">
+            <div class="dialog-header_wrapper">
+                <h4>Titulo</h4>
+                <button class="close-btn" id="fechar">
+                    Close
+                </button>
+            </div>
+        </div>
     </div>
 </div>

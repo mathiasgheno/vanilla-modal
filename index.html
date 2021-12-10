@@ -1,4 +1,19 @@
 <style>
+    :root {
+        --background-light-color: white;
+        --text-color-light: black;
+        --background-dark-color-primary: #2D2D2D;
+        --background-dark-color-secondary: #1D1B1B;
+        --contrast-dark: #575757;
+        --text-color-dark: #FFFFF8;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        html {
+            background-color: var(--background-dark-color-primary);
+        }
+    }
+
     .dialog-wrapper {
         position: fixed;
         top: 0;
@@ -9,6 +24,11 @@
         place-content: center;
         transition: top 0.2s ease-out;
         color: black;
+    }
+
+    .dialog-body {
+        margin-top: 20px;
+        padding: 0 20px;
     }
 
     .dialog-wrapper__closed {
@@ -29,6 +49,14 @@
         border: 1px solid black;
     }
 
+    @media(prefers-color-scheme: dark) {
+        .dialog-content {
+            background-color: var(--background-dark-color-secondary);
+            color: var(--text-color-dark);
+            border-color: var(--contrast-dark);
+        }
+    }
+
     .dialog-header {
         padding: 0 20px;
         /*color: white;*/
@@ -42,12 +70,25 @@
         border-bottom: 1px solid black;
     }
 
+    @media (prefers-color-scheme: dark) {
+        .dialog-header_wrapper {
+            border-color: var(--contrast-dark);
+            color: var(--text-color-dark);
+        }
+    }
+
     .close-btn {
         padding: 10px 0;
         background: transparent;
         border: none;
         font-weight: bold;
         cursor: pointer;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .close-btn {
+            color: var(--text-color-dark);
+        }
     }
 
     /* if width >= 750 */
@@ -98,6 +139,9 @@
                     Close
                 </button>
             </div>
+        </div>
+        <div class="dialog-body">
+            conteudo
         </div>
     </div>
 </div>

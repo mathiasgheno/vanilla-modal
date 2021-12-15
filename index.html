@@ -26,6 +26,12 @@
         color: black;
     }
 
+    @media(prefers-reduced-motion: reduce) {
+      .dialog-wrapper {
+        transition: none;
+      }
+    }
+
     .dialog-body {
         margin-top: 20px;
         padding: 0 20px;
@@ -55,6 +61,12 @@
             color: var(--text-color-dark);
             border-color: var(--contrast-dark);
         }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dialog-content {
+        transition: none;
+      }
     }
 
     .dialog-header {

@@ -17,15 +17,17 @@ window.onload = () => {
   }
 
   const handleOpenModal = () => {
-    document
-      .querySelector('#modal')
-      .setAttribute('class', 'dialog-wrapper');
+    const modalNode = document.querySelector('#modal');
+    modalNode.setAttribute('style', 'visibility: visible;')
+    modalNode.setAttribute('class', 'dialog-wrapper');
   }
 
   const handleCloseModal = () => {
-    document
-      .querySelector('#modal')
-      .setAttribute('class', 'dialog-wrapper dialog-wrapper__ease_in dialog-wrapper__closed')
+    const modalNode = document.querySelector('#modal');
+    modalNode.setAttribute('class', 'dialog-wrapper dialog-wrapper__ease_in dialog-wrapper__closed')
+    setTimeout(() => {
+      modalNode.setAttribute('style', 'visibility: hidden;')
+    }, 210);
   }
 
   document

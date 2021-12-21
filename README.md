@@ -10,5 +10,5 @@ Funcionalidades
 - [ ] Tema light / dark com botão global
 - [ ] Acessível
   - [x] Esc para fechar
-  - [] 
+  - [x] Não visivel para leitor de telas na inicialização.
 - [x] Redução de movimentos com `prefers-reduced-motion`

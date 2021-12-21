@@ -1,159 +1,27 @@
-<style>
-    :root {
-        --background-light-color: white;
-        --text-color-light: black;
-        --background-dark-color-primary: #2D2D2D;
-        --background-dark-color-secondary: #1D1B1B;
-        --contrast-dark: #575757;
-        --text-color-dark: #FFFFF8;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        html {
-            background-color: var(--background-dark-color-primary);
-        }
-    }
-
-    .dialog-wrapper {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: grid;
-        place-content: center;
-        transition: top 0.2s ease-out;
-        color: black;
-    }
-
-    @media(prefers-reduced-motion: reduce) {
-      .dialog-wrapper {
-        transition: none;
-      }
-    }
-
-    .dialog-body {
-        margin-top: 20px;
-        padding: 0 20px;
-    }
-
-    .dialog-wrapper__closed {
-        top: -100vh;
-    }
-
-    /* mobile */
-    .dialog-content {
-        width: 90vw;
-        max-width: 100%;
-        height: 90vh;
-        background-color: white;
-        border-radius: 6px;
-        transition:
-                width 0.2s ease-in-out,
-                height 0.2s ease-in-out,
-                background-color 0.2s ease-in-out;
-        border: 1px solid black;
-    }
-
-    @media(prefers-color-scheme: dark) {
-        .dialog-content {
-            background-color: var(--background-dark-color-secondary);
-            color: var(--text-color-dark);
-            border-color: var(--contrast-dark);
-        }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .dialog-content {
-        transition: none;
-      }
-    }
-
-    .dialog-header {
-        padding: 0 20px;
-        /*color: white;*/
-    }
-
-    .dialog-header_wrapper {
-        height: 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid black;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        .dialog-header_wrapper {
-            border-color: var(--contrast-dark);
-            color: var(--text-color-dark);
-        }
-    }
-
-    .close-btn {
-        padding: 10px 0;
-        background: transparent;
-        border: none;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        .close-btn {
-            color: var(--text-color-dark);
-        }
-    }
-
-    /* if width >= 750 */
-    @media screen and (min-width: 750px) {
-        .dialog-content {
-            width: 70vw;
-            height: 70vh;
-        }
-    }
-
-    /* if width >= 1000 */
-    @media screen and (min-width: 1000px) {
-        .dialog-content {
-            width: 600px;
-            height: 400px;
-        }
-    }
-</style>
-
-<script>
-  window.onload = () => {
-    document
-      .querySelector('#abrir')
-      .addEventListener('click', () => {
-        document
-          .querySelector('#modal')
-          .setAttribute('class', 'dialog-wrapper');
-      });
-
-    document
-      .querySelector('#fechar')
-      .addEventListener('click', () => {
-        document
-          .querySelector('#modal')
-          .setAttribute('class', 'dialog-wrapper dialog-wrapper__ease_in dialog-wrapper__closed')
-      });
-  }
-
-</script>
-
-<button id="abrir">Abrir</button>
-<div id="modal" class="dialog-wrapper dialog-wrapper__closed">
-    <div class="dialog-content">
-        <div class="dialog-header">
-            <div class="dialog-header_wrapper">
-                <h4>Titulo</h4>
-                <button class="close-btn" id="fechar">
-                    Close
-                </button>
+<html>
+    <head>
+        <title>Modal Vanilla</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <button id="abrir">Abrir</button>
+        <div id="modal" class="dialog-wrapper dialog-wrapper__closed" role="dialog" aria-labelledby="modal_title">
+            <div class="dialog-content">
+                <div class="dialog-header">
+                    <div class="dialog-header_wrapper">
+                        <h4 id="modal_title">Titulo</h4>
+                        <button class="close-btn" id="fechar">
+                            Close
+                        </button>
+                    </div>
+                </div>
+                <div class="dialog-body">
+                    conteudo
+                </div>
             </div>
         </div>
-        <div class="dialog-body">
-            conteudo
-        </div>
-    </div>
-</div>
+        <!-- a11y: https://youtu.be/JS68faEUduk -->
+
+    <script src="scripts.js"></script>
+    </body>
+</html>

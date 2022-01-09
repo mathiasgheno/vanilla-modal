@@ -1,6 +1,9 @@
-name: Pull Request to Master
+ name: Pull Request to Master
 
 on:
+  push:
+    branches:
+    - master
   pull_request:
     branches:
     - master

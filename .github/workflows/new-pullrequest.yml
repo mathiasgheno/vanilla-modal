@@ -11,8 +11,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-
     steps:
     - name: Get branch name (pull request)
       shell: bash

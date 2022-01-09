@@ -6,30 +6,30 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Get branch name (pull request)
-      shell: bash
-      run: echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
-
-    - name: S3 Bucket Name
-      shell: bash
-      run: echo "BUCKET_NAME=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
-
-    - name: Debug
-      run: echo ${{ env.BRANCH_NAME }}
-
-#    - name: Create bucket in S3
-#      uses: aitorres/aws-s3-create-bucket@v1.2.0
-#      with:
-#        bucket-name: 'my-unique-name-for-my-bucket'
-#        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#        aws-region: 'us-east-2'
-#        acl: 'private'
+#    - name: Get branch name (pull request)
+#      shell: bash
+#      run: echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
 #
-#    - uses: actions/checkout@master
-#    - uses: jakejarvis/s3-sync-action@master
-#      env:
-#        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-#        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#        SOURCE_DIR: 'www'
+#    - name: S3 Bucket Name
+#      shell: bash
+#      run: echo "BUCKET_NAME=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
+#
+#    - name: Debug
+#      run: echo ${{ env.BRANCH_NAME }}
+
+    - name: Create bucket in S3
+      uses: aitorres/aws-s3-create-bucket@v1.2.0
+      with:
+        bucket-name: 'mathiasgheno-vanilla-modal-on-demand-test'
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: 'sa-east-1'
+        acl: 'private'
+
+    - uses: actions/checkout@master
+    - uses: jakejarvis/s3-sync-action@master
+      env:
+        AWS_S3_BUCKET: mathiasgheno-vanilla-modal-on-demand-test
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        SOURCE_DIR: 'www'

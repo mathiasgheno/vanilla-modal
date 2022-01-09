@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Modal Vanilla</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <button id="abrir">Abrir</button>
+    <div id="modal" class="dialog-wrapper dialog-wrapper__closed" role="dialog" aria-labelledby="modal_title" style="visibility: hidden;">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <div class="dialog-header_wrapper">
+                    <h4 id="modal_title">Titulo</h4>
+                    <button class="close-btn" id="fechar">
+                        Close
+                    </button>
+                </div>
+            </div>
+            <div class="dialog-body">
+                conteudo
+            </div>
+        </div>
+    </div>
+    <!-- a11y: https://youtu.be/JS68faEUduk -->
+
+    <script src="scripts.js"></script>
+    </body>
+</html>

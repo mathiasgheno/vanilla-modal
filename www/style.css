@@ -52,6 +52,19 @@
           height 0.2s ease-in-out,
           background-color 0.2s ease-in-out;
   border: 1px solid black;
+  z-index: 101;
+}
+
+.dialog-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0.3;
+  overflow: hidden;
+  z-index: 100;
 }
 
 @media(prefers-color-scheme: dark) {

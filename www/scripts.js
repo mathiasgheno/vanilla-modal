@@ -38,3 +38,7 @@ document
 
 document
   .addEventListener('keydown', handleEscape)
+
+document
+  .querySelector('#dialog_mask')
+  .addEventListener('click', handleCloseModal)

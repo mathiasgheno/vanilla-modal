@@ -18,11 +18,18 @@ const handleOpenModal = () => {
   const modalNode = document.querySelector('#modal');
   modalNode.setAttribute('style', 'visibility: visible;')
   modalNode.setAttribute('class', 'dialog-wrapper');
+
+  const modalMaskNode = document.querySelector('#dialog_mask');
+  modalMaskNode.setAttribute('class', 'dialog-mask dialog-mask__open');
 }
 
 const handleCloseModal = () => {
   const modalNode = document.querySelector('#modal');
-  modalNode.setAttribute('class', 'dialog-wrapper dialog-wrapper__ease_in dialog-wrapper__closed')
+  modalNode.setAttribute('class', 'dialog-wrapper dialog-wrapper__closed')
+
+  const modalMaskNode = document.querySelector('#dialog_mask');
+  modalMaskNode.setAttribute('class', 'dialog-mask dialog-mask__closed');
+
   setTimeout(() => {
     modalNode.setAttribute('style', 'visibility: hidden;')
   }, 210);

@@ -61,10 +61,28 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background: black;
-  opacity: 0.3;
+  background: white;
   overflow: hidden;
   z-index: 100;
+  transition:
+    opacity 0.3s ease-in-out,
+    background 0.3s ease-in-out
+}
+
+.dialog-mask__open {
+  background: gray;
+  opacity: 0.3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog-mask {
+    transition: none;
+  }
+}
+
+.dialog-mask__closed {
+  background: transparent;
+  opacity: 1;
 }
 
 @media(prefers-color-scheme: dark) {

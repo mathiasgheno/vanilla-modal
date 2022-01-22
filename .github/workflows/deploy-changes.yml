@@ -1,0 +1,14 @@
+name: CI
+
+# Controls when the workflow will run
+on: 
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Novas Alterações na Branchs

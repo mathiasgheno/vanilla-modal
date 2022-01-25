@@ -15,6 +15,8 @@ const handleEscape = (event) => {
 }
 
 const handleOpenModal = () => {
+  blockScrollInProjectKeepInModal();
+
   const modalNode = document.querySelector('#modal');
   modalNode.setAttribute('style', 'visibility: visible;')
   modalNode.setAttribute('class', 'dialog-wrapper');
@@ -24,6 +26,8 @@ const handleOpenModal = () => {
 }
 
 const handleCloseModal = () => {
+  blockScrollInProjectKeepInModal(true);
+
   const modalNode = document.querySelector('#modal');
   modalNode.setAttribute('class', 'dialog-wrapper dialog-wrapper__closed')
 
@@ -33,6 +37,21 @@ const handleCloseModal = () => {
   setTimeout(() => {
     modalNode.setAttribute('style', 'visibility: hidden;')
   }, 210);
+}
+
+const blockScrollInProjectKeepInModal = (remover = false) => {
+  const style = document.createElement('style');
+  style.innerHTML = `
+    body {
+      overflow: hidden;
+      overflow-y: hidden;
+      padding-right: 0 !important;
+    }
+  `;
+  if(remover) {
+    document.head.removeChild(style);
+  }
+  document.head.appendChild(style);
 }
 
 document

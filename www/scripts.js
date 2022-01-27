@@ -40,18 +40,29 @@ const handleCloseModal = () => {
 }
 
 const blockScrollInProjectKeepInModal = (remover = false) => {
-  const style = document.createElement('style');
-  style.innerHTML = `
+  const styleScriptId = 'style_script_scroll'
+  let styleScript;
+
+  if(remover) {
+    // wait for animation, so modal does not get extra padding from scroll
+    setTimeout(() => {
+      styleScript = document.querySelector(`#${styleScriptId}`);
+      styleScript.parentNode.removeChild(styleScript);
+    }, 300);
+    return;
+  }
+
+  styleScript = document.createElement('style');
+  styleScript.setAttribute('type', 'text/css');
+  styleScript.setAttribute('id', styleScriptId);
+  styleScript.innerHTML = `
     body {
       overflow: hidden;
       overflow-y: hidden;
       padding-right: 0 !important;
     }
   `;
-  if(remover) {
-    document.head.removeChild(style);
-  }
-  document.head.appendChild(style);
+  document.head.appendChild(styleScript);
 }
 
 document

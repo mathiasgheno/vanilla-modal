@@ -8,4 +8,4 @@ jobs:
   log:
     runs-on: ubuntu-latest
     steps:
-      - uses: mathiasgheno/s3-on-demand-action@v1.1.0
+      - uses: mathiasgheno/s3-on-demand-action@v1.2.0

@@ -2,7 +2,9 @@
 name: s3-on-demand-action-tests
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - 'feature/**'
 
 jobs:
   log:

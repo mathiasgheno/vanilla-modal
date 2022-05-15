@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - 'feature/**'
+      - 'master'
+      - 'main'
 
 jobs:
   log:

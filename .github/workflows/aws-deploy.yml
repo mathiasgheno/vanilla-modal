@@ -1,4 +1,4 @@
-name: s3-on-demand-action-tests
+name: aws-deploy
 
 on: [workflow_dispatch]
 
